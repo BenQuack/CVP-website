@@ -44,11 +44,14 @@
     </div>       
     <div class="container CVP">
         <h2>Closest Vector Problem Encryption</h2>
-        <label>Enter text to encrypt:<input type="text" id="cvp_input"></label>
-        <button id="run_cvp">Run CVP</button>
+        <label>Enter text to encrypt:<input type="text" id="cvp-input"></label>
+        <button id="run-cvp">Run CVP</button>
+        <canvas id="lattice-canvas" width="600" height="600" style="border:1px solid black;"></canvas>
+        <canvas id="basis-canvas" width="600" height="200" style="border:1px solid black;"></canvas>
         <p id="good-basis"></p>
         <p id="bad-basis"></p>
-        <div id="cvp_plot"></div>
+        <p id="num-steps"></p>
+        <img id="steps-plot" style="max-width: 100%;">
         <div class="container">
             <h3>What is happening?</h3>
             <p>
@@ -72,17 +75,34 @@
             </p>
             <h3>Why is this safe against quantum computers?</h3>
             <p>
-                Quantum computers are able to solve RSA encryption so fast with the use of Shor's algorithm. With encryption 
+                Quantum computers are able to solve RSA encryption so fast with the use of Shor's algorithm, which utilizes a quantum
+                computers ability to, in very simple terms, test a large range of x values at once. With encryption 
                 schemes that are based on CVP there is no algoithm that exists for classic computers or quantum computers that can 
-                solve it in polynomial time. The challenge for quantum computers is that the properties that make them efficent at
-                solving RSA encryption and Shor's algoithm are what lead to them being at the moment worse than 
+                solve it in polynomial time.
             </p>
+            <h3>What does this look like in application?</h3>
+            <p>
+                There are no encryption shcemes that look like the demo above becuase there are no encryption shemes that use the CVP directly.
+                This does not mean that the CVP does not come into play. An example would be Learning with Errors a common encryption shceme
+                that creates a noisy linear equation as the public key this public key is build from a vector that is the private key. This becomes
+                an instance of the CVP when you attempt to get the private key from the noisy linear equation.
+            </p>
+            <a href="https://www.youtube.com/watch?v=K026C5YaB3A&ab_channel=ChalkTalk"></a>
         </div>
+    </div>
+    
+    <div class="container sources">
+        <h2>Sources</h2>
+        <a href="https://www.redhat.com/en/blog/post-quantum-cryptography-lattice-based-cryptography">https://www.redhat.com/en/blog/post-quantum-cryptography-lattice-based-cryptography</a>
+        <a href="https://crypto.stackexchange.com/questions/50856/why-is-lattice-based-cryptography-believed-to-be-hard-against-quantum-computer">https://crypto.stackexchange.com/questions/50856/why-is-lattice-based-cryptography-believed-to-be-hard-against-quantum-computer</a>
+        <a href="https://people.csail.mit.edu/vinodv/CS294/lecture4.pdf">https://people.csail.mit.edu/vinodv/CS294/lecture4.pdf</a>
+        <a href="https://en.wikipedia.org/wiki/Learning_with_errors">https://en.wikipedia.org/wiki/Learning_with_errors</a>
     </div>
     
 </body>
 <py-config>
     packages = [
+        "olll",
         "numpy",
         "pandas",
         "matplotlib"
