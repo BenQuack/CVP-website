@@ -247,7 +247,6 @@ def display(event):
            color=['blue', 'red'])
     ax.set_ylabel('Steps')
     ax.set_title('Decryption Step Count Comparison')
-    plt.savefig()
 
     filename = "steps_plot.png"
     fig.savefig(filename)
