@@ -8,6 +8,10 @@ body{
     height: 5vh;
     top: 1vh;
     left: 1vh;
+    background-image: url(GitHub-Mark-ea2971cee799.png) ;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .bar{
