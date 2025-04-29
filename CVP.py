@@ -144,8 +144,8 @@ def display(event):
     decrypt(cypher, good_basis)
     decrypt(cypher, bad_basis, good=False)
 
-    good_basis_display.innerText = good_basis
-    bad_basis_display.innerText = bad_basis
+    good_basis_display.innerText = good_basis + " Number of steps to decrypt: " + str(steps["good_babai"])
+    bad_basis_display.innerText = bad_basis + " Number of steps to decrypt: " + str(steps["bad_babai"] + steps["gauss"])
 
     canvas = document.getElementById("lattice-canvas")
     ctx = canvas.getContext("2d")
@@ -183,9 +183,9 @@ def display(event):
     ctx.fillStyle = "white"
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-    origin_x = 50  # Near bottom-left
-    origin_y = height - 50  # Invert Y because canvas y grows downward
-    scale = 40  # Scaling factor for visibility
+    origin_x = 50  
+    origin_y = height - 50 
+    scale = 40 
 
     for b in good_basis:
         end_x = origin_x + b[0] * scale
@@ -241,6 +241,8 @@ def display(event):
         ctx.fillStyle = "red"
         ctx.fill()
 
+    # could not get the plot to display
+    """
     fig, ax = plt.subplots()
     ax.bar(['Good Babai', 'Bad Babai'], 
            [steps['good_babai'], steps['bad_babai'] + steps['gauss']], 
@@ -254,6 +256,7 @@ def display(event):
 
     img_element = document.getElementById("steps-plot")
     img_element.setAttribute("src", filename)
+    """
         
 
 

@@ -30,18 +30,20 @@
         <div class="container">
             <h3>Why don't we use RSA anymore</h3>
             <p>
-                The main reason that RSA is no longer used as the main form of cybersecurity is becuase we have better encryption 
-                algoithms that use much smaller numbers for the example above you use RSA-3 or the number of digits in the primes used is 3.
-                Today for the minimum security we use RSA-617 or prime numbers that are 617 digits long.
+                The main reason that RSA is no longer used as the main form of cybersecurity is because we have better encryption 
+                algorithms that use much smaller numbers. For the example above, you use RSA-3, meaning the number of digits in the primes used is 3.
+                Today, for minimum security, we use RSA-617, or prime numbers that are 617 digits long.
             </p>
             <p>
-                A secondary reason though would be that a quantum computer can be created that would so efficently run Shor's algorithm making the 
-                requirements for RSA so insane that no non-quantum computer would ever be able to encode and decode messages. If we keep using the RSA-n
-                notation then to defend against a quantum computer you would need RSA-10,000+ to defend(for a bit) against what could one day be a small quantum computer.
+                A secondary reason, though, is that a quantum computer could be created that would efficiently run Shor's algorithm, making the 
+                requirements for RSA so extreme that no non-quantum computer would ever be able to encode and decode messages. If we keep using the RSA-n
+                notation, then to defend against a quantum computer, you would need RSA-10,000+ to defend (for a bit) against what could one day be a small quantum computer.
             </p>
             <p>Here is a problem that can stop a quantum computer.</p>
+
         </div>
     </div>       
+    <div class="bar"></div>
     <div class="container CVP">
         <h2>Closest Vector Problem Encryption</h2>
         <label>Enter text to encrypt:<input type="text" id="cvp-input"></label>
@@ -55,42 +57,41 @@
         <div class="container">
             <h3>What is happening?</h3>
             <p>
-                This is a form of encryption that is able to protect against quantum computers and is able to be preformed on traditional computers.
-                This is an example of using the cloest vector problem to encrypt data heres how it works at a high level.
+                This is a form of encryption that is able to protect against quantum computers and can be performed on traditional computers.
+                This is an example of using the closest vector problem to encrypt data. Here's how it works at a high level:
             </p>
             <ol>
-                <li>Each person has a good and bad set of vectors that make a lattice. <br>The good and bad sets both make the same lattice, but the bad set makes traversing it way harder</li>
-                <li>Your message is then converted into a number representation. I am using pairs of charcters converted to ASCII</li>
+                <li>Each person has a good and bad set of vectors that form a lattice. <br>The good and bad sets both form the same lattice, but the bad set makes traversing it much harder.</li>
+                <li>Your message is then converted into a numerical representation. I am using pairs of characters converted to ASCII.</li>
                 <li>That representation has a bit of noise added to it.</li>
-                <li>The noisy representation is then put onto the lattice of the intended recipient as a single point.</li>
-                <li>The recipient then uses their good vectors to find the point on their lattice that is closest to that noisy point</li>
-                <li>Reverse the string to integer operation to get the message. This step can involve error correction as messages are not always perfectly preserved</li>
+                <li>The noisy representation is then placed onto the lattice of the intended recipient as a single point.</li>
+                <li>The recipient then uses their good vectors to find the point on their lattice that is closest to that noisy point.</li>
+                <li>Reverse the string-to-integer operation to retrieve the message. This step can involve error correction as messages are not always perfectly preserved.</li>
             </ol>
             <p>
-                In this simple CVP based encryption scheme you use the good basis as the private key so only the recipient knows what it is but the sender can make
-                and put a point on the lattice formed by the good basis becuase there is a bad basis that still makes the same lattice.
-                This means that everyone knows the bad basis and can try and use it to solve the problem and in 2 dimensions it is not a 
-                huge challenge. Now think about this in 3 dimensions, it gets a bit more complex. Now lets multiply that by 100 and you get 
-                the small end of the range of dimensions that cryptographers are using.
+                In this simple CVP-based encryption scheme, you use the good basis as the private key, so only the recipient knows what it is. However, the sender can still place a point on the lattice formed by the good basis because there is a bad basis that forms the same lattice.
+                This means that everyone knows the bad basis and can try to use it to solve the problem, and in two dimensions, it is not a huge challenge. Now think about this in three dimensions — it gets a bit more complex. Now multiply that by 100, and you get 
+                the lower end of the range of dimensions that cryptographers are using.
             </p>
             <h3>Why is this safe against quantum computers?</h3>
             <p>
-                Quantum computers are able to solve RSA encryption so fast with the use of Shor's algorithm, which utilizes a quantum
-                computers ability to, in very simple terms, test a large range of x values at once. With encryption 
-                schemes that are based on CVP there is no algoithm that exists for classic computers or quantum computers that can 
+                Quantum computers are able to solve RSA encryption very quickly using Shor's algorithm, which utilizes a quantum
+                computer's ability to, in very simple terms, test a large range of x-values at once. 
+                With encryption schemes based on CVP, there is no algorithm that exists — for classical computers or quantum computers — that can 
                 solve it in polynomial time.
             </p>
             <h3>What does this look like in application?</h3>
             <p>
-                There are no encryption shcemes that look like the demo above becuase there are no encryption shemes that use the CVP directly.
-                This does not mean that the CVP does not come into play. An example would be Learning with Errors a common encryption shceme
-                that creates a noisy linear equation as the public key this public key is build from a vector that is the private key. This becomes
-                an instance of the CVP when you attempt to get the private key from the noisy linear equation.
+                There are no encryption schemes that look like the demo above because there are no encryption schemes that use the CVP directly.
+                This does not mean that the CVP does not come into play. An example would be Learning with Errors, a common encryption scheme
+                that creates a noisy linear equation as the public key. This public key is built from a vector that is the private key. 
+                This becomes an instance of the CVP when you attempt to retrieve the private key from the noisy linear equation.
             </p>
-            <a href="https://www.youtube.com/watch?v=K026C5YaB3A&ab_channel=ChalkTalk"></a>
+
+            <a href="https://www.youtube.com/watch?v=K026C5YaB3A&ab_channel=ChalkTalk">A good video on Learning with Errors</a>
         </div>
     </div>
-    
+    <div class="bar"></div>
     <div class="container sources">
         <h2>Sources</h2>
         <a href="https://www.redhat.com/en/blog/post-quantum-cryptography-lattice-based-cryptography">https://www.redhat.com/en/blog/post-quantum-cryptography-lattice-based-cryptography</a>
