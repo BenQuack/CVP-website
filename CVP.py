@@ -105,7 +105,6 @@ def encrypt(m, basis):
             list_of_ascii_pairs.append([ord(m[i]), ord(m[i+1])]) # makes a list of ascii pairs
     
     encrypted = []
-    print(list_of_ascii_pairs)
     for pair in list_of_ascii_pairs:
         point = np.dot(pair, basis)
         encrypted_point = add_noise(point)
@@ -144,8 +143,11 @@ def display(event):
     decrypt(cypher, good_basis)
     decrypt(cypher, bad_basis, good=False)
 
-    good_basis_display.innerText = good_basis + " Number of steps to decrypt: " + str(steps["good_babai"])
-    bad_basis_display.innerText = bad_basis + " Number of steps to decrypt: " + str(steps["bad_babai"] + steps["gauss"])
+    steps_good = steps["good_babai"]
+    steps_bad = steps["bad_babai"] + steps["gauss"]
+
+    good_basis_display.innerText = str(good_basis) + " Number of steps to decrypt: " + str(steps_good)
+    bad_basis_display.innerText = str(bad_basis) + " Number of steps to decrypt: " + str(steps_bad)
 
     canvas = document.getElementById("lattice-canvas")
     ctx = canvas.getContext("2d")
