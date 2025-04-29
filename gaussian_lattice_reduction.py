@@ -54,7 +54,7 @@ def run_reduction_input():
     print(f"reduced basis: {gaussian_reduction(np.array(v_1_a_input, v_1_b_input),np.array(v_2_a_input, v_2_b_input))}")
 
 def run_reduction_hw():
-    print(f"reduced basis: {gaussian_reduction(np.array([1, 5]),np.array([6, 21]))}")
+    print(f"reduced basis: {gaussian_reduction(np.array([101, 100]),np.array([100, 99]))}")
     print(f"reduced basis: {gaussian_reduction(np.array([3, 8]),np.array([5, 14]))}")
     print(f"reduced basis: {gaussian_reduction(np.array([53, 88]),np.array([107, 205]))}")
 
